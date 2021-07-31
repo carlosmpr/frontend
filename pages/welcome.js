@@ -1,6 +1,6 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
 
 export default function Welcome() {
   return (
@@ -24,7 +24,7 @@ export default function Welcome() {
         <div className={styles.grid}>
           <a href="/languages" className={styles.card}>
             <h2>Programing Languages&rarr;</h2>
-            <p>Select your  Programing Language.</p>
+            <p>Select your Programing Language.</p>
           </a>
 
           <a href="https://nextjs.org/learn" className={styles.card}>
@@ -32,10 +32,7 @@ export default function Welcome() {
             <p>See all the code Challanges that you accepted</p>
           </a>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
+          <a href="/groups" className={styles.card}>
             <h2>Explore Groups &rarr;</h2>
             <p>Be part of Groups and meet new users</p>
           </a>
@@ -46,7 +43,7 @@ export default function Welcome() {
           >
             <h2>My Groups &rarr;</h2>
             <p>
-            <p>Your group membership</p>
+              <p>Your group membership</p>
             </p>
           </a>
         </div>
@@ -58,12 +55,12 @@ export default function Welcome() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <span className={styles.logo}>
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
       </footer>
     </div>
-  )
+  );
 }

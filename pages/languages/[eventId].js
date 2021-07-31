@@ -1,17 +1,32 @@
 import React from "react";
 import TableData from "../../component/Table";
+import GroupTable from "../../component/GroupTable";
 
 export default function LanguageDetails({ data }) {
   console.log(data);
   return (
-  <div>
+    <div>
       {data.name}
+
+      <div style={{ padding: "25px" }}>
+        {data.code_challenges.length > 0 ? (
+          <>
+          <h1>Challanges</h1>
+          <TableData code={data.code_challenges} />
+          </>
+        ) : (
+          <p>no</p>
+        )}
+      </div>
+      <div style={{ padding: "25px" }}>
+      {data.groups.length > 0 ? 
+      <> 
       
-      <div style={{padding:'25px'}}>
-      {data.code_challenges.length > 0 ? <TableData code={data.code_challenges}/> : <p>no</p>}
+        <h1>Groups</h1>
+        <GroupTable groups={data.groups} />
+      </> : <p>no</p>}
       </div>
-      {data.groups.length > 0 ? <p>yes</p> : <p>no</p>}
-      </div>
+    </div>
   );
 }
 
