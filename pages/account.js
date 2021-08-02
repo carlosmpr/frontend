@@ -16,17 +16,17 @@ export default function SignInSide() {
  const [user, setUser] = useState({})
  const [select, setSelect] = useState('Profile')
  const [loading, setLoading] = useState(false)
-    // const token = useSelector((state) => state.counter.token)
-    const token = {
-        "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJjYXJsb3NAZW1haWwiLCJuYW1lIjoiQ2FybG9zIiwiZ2l0aHViIjoiY2FybG9zZ2l0aHViIiwiaW1hZ2UiOiJjYXJsb3NpbWFnZSIsInBob25lIjoiMDAwMDAwMDAwIn0.7xJzb18bZCx38-7SmCf4Czj8fNUJ_Whh-CPZKLdnolU"
+    const token = useSelector((state) => state.counter.token)
+    // const token = {
+    //     "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJjYXJsb3NAZW1haWwiLCJuYW1lIjoiQ2FybG9zIiwiZ2l0aHViIjoiY2FybG9zZ2l0aHViIiwiaW1hZ2UiOiJjYXJsb3NpbWFnZSIsInBob25lIjoiMDAwMDAwMDAwIn0.7xJzb18bZCx38-7SmCf4Czj8fNUJ_Whh-CPZKLdnolU"
     
-        // "group_id":1
-    }
+    //     // "group_id":1
+    // }
    
-
+ console.log(token)
  useEffect(() => {
     (async () => {
-        const res = await axios.post('http://127.0.0.1:5000/me', token)
+        const res = await axios.post('http://127.0.0.1:5000/me', {token: token})
         setLoading(true)
         setUser(res.data)
         console.log(res)

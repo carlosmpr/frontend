@@ -13,6 +13,7 @@ import { useSelector } from "react-redux";
 
 export default function GroupTable({groups}) {
   const token = useSelector((state) => state.counter.token);
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">

@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { useSelector } from "react-redux";
+import Link from 'next/link'
 
 export default function Navbar() {
   const token = useSelector((state) => state.counter.token);
@@ -26,7 +27,18 @@ export default function Navbar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             The CodeChallange
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Link href="/login">
+          <a  >
+          Login
+          </a>
+          </Link>
+
+          <Link href="/account">
+          <a  >
+          account
+          </a>
+          </Link>
+        
         </Toolbar>
       </AppBar>
 

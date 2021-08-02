@@ -28,7 +28,7 @@ export default function MyMembership() {
      }
     return (
         <div>
-           {data.map(item => <GroupItem {...item}/>)}
+           {data.map(item => <GroupItem {...item} remove={true}/>)}
         </div>
     )
 }
