@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-
+import Link from 'next/link'
 export default function Welcome() {
   return (
     <div className={styles.container}>
@@ -22,10 +22,12 @@ export default function Welcome() {
         </p>
 
         <div className={styles.grid}>
-          <a href="/languages" className={styles.card}>
+        <Link href="/languages">
+          <a  className={styles.card}>
             <h2>Programing Languages&rarr;</h2>
             <p>Select your Programing Language.</p>
           </a>
+          </Link>
 
           <a href="https://nextjs.org/learn" className={styles.card}>
             <h2>My Challanges &rarr;</h2>

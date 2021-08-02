@@ -7,9 +7,12 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from "@material-ui/core/Button";
+import axios from 'axios'
+import { useSelector } from "react-redux";
 
 
 export default function GroupTable({groups}) {
+  const token = useSelector((state) => state.counter.token);
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -32,7 +35,21 @@ export default function GroupTable({groups}) {
               </TableCell>
 
               <TableCell align="right">1,500</TableCell>
-              <TableCell align="right"><Button  style={{background:'red', color:'white'}}>Join</Button></TableCell>
+              <TableCell align="right"><Button  style={{background:'red', color:'white'}}
+              
+              
+              onClick={async () => {
+                const res = await axios.post(
+                  "http://127.0.0.1:5000/group_members",
+                  {
+                    token,
+                    group_id: row.id,
+                  }
+                );
+    
+                console.log(res);
+              }}
+              >Join</Button></TableCell>
             
             </TableRow>
           ))}

@@ -6,7 +6,10 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Button from "@material-ui/core/Button";
-export default function GroupItem({name, programing_language}) {
+import { useSelector } from "react-redux";
+import axios from 'axios'
+export default function GroupItem({id ,name, programing_language}) {
+  const token = useSelector((state) => state.counter.token);
     return (
         <>
         <ListItem alignItems="flex-start">
@@ -26,7 +29,20 @@ export default function GroupItem({name, programing_language}) {
                  Programing Language: {programing_language.name} 
                 </Typography>
                 {" — I'll be in your neighborhood doing errands this…"}
-                <Button  style={{background:'red', color:'white', marginLeft:'35%'}}>Join</Button>
+                <Button  style={{background:'red', color:'white', marginLeft:'35%'}} 
+                onClick={async () => {
+                  // const res = await axios.post(
+                  //   "http://127.0.0.1:5000/group_members",
+                  //   {
+                  //     token,
+                  //     group_id: id,
+                  //   }
+                  // );
+      
+                  console.log('klk');
+                }}
+                
+                >Join</Button>
                 <Button  style={{background:'red', color:'white', marginLeft:'35%'}}>Members</Button>
 
               </React.Fragment>
