@@ -35,6 +35,22 @@ export default function ItemList({ name, id, description, solution }) {
         >
           Add Challanges
         </Button>
+        <Button
+          variant="outlined"
+          onClick={async () => {
+            const res = await axios.post(
+              `http://127.0.0.1:5000/user_challenges/delete`,
+              {
+                token,
+                challange_id: id,
+              }
+            );
+
+            console.log(res);
+          }}
+        >
+          unfollow
+        </Button>
       </TableCell>
     </TableRow>
   );
