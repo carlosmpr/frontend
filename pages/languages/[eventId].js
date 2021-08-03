@@ -1,10 +1,13 @@
 import React from "react";
 import TableData from "../../component/Table";
 import GroupTable from "../../component/GroupTable";
+import Navbar from '../../component/Navbar'
 
 export default function LanguageDetails({ data }) {
   console.log(data);
   return (
+    <>
+    <Navbar />
     <div>
       {data.name}
 
@@ -27,6 +30,7 @@ export default function LanguageDetails({ data }) {
       </> : <p>no</p>}
       </div>
     </div>
+    </>
   );
 }
 

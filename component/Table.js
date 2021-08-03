@@ -15,13 +15,13 @@ export default function TableData({code}) {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Challange Name</TableCell>
-            <TableCell align="right">Description</TableCell>
-            <TableCell align="right">Difficulty</TableCell>
-            <TableCell align="right">Solution</TableCell>
-            <TableCell align="right">Add</TableCell>
+        <TableHead style={{color:'white'}}>
+          <TableRow style={{background:'#31333A', color:'white'}}>
+            <TableCell  style={{color:'white'}}>Challange Name</TableCell>
+            <TableCell align="right"  style={{color:'white'}}>Description</TableCell>
+            <TableCell align="right"  style={{color:'white'}}>Difficulty</TableCell>
+            <TableCell align="right"  style={{color:'white'}}>Solution</TableCell>
+            <TableCell align="right"  style={{color:'white'}}>Add</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

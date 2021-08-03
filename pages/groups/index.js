@@ -1,14 +1,15 @@
 import * as React from 'react';
 import List from '@material-ui/core/List';
-
-
 import GroupItem from '../../component/GroupItem';
-
+import Navbar from '../../component/Navbar'
 export default function Groups({data}) {
   return (
+    <>
+    <Navbar />
     <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
       {data.map(item => <GroupItem {...item}/>)}
     </List>
+    </>
   );
 }
 

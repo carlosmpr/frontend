@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import Navbar from "../../component/Navbar";
 import LanguagesIcons from "../../component/LanguagesIcons";
 export default function index() {
   const [data, setData] = useState([]);
@@ -14,12 +14,15 @@ export default function index() {
     return <div>Loading..</div>;
   }
   return (
-    <div style={{width:'100vw', display:'flex', justifyContent:'space-evenly'}}>
+    <>
+    <Navbar />
+    <div style={{width:'100vw', height:'50vh',display:'flex', justifyContent:'space-evenly', alignItems:'center'}}>
       {data.map((item) => (
         <LanguagesIcons key={item.name} {...item} />
       ))}
 
       {/* <IconButton>Ruby</IconButton> */}
     </div>
+    </>
   );
 }

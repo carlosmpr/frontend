@@ -28,7 +28,7 @@ export default function Mychallange() {
      }
     return (
         <div>
-           {data.map(item => <ItemList {...item}/>)}
+           {data.map(item => <ItemList {...item} unFollow={true}/>)}
         </div>
     )
 }

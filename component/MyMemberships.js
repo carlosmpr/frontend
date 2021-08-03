@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import GroupItem from './GroupItem'
+import Grid from '@material-ui/core/Grid';
 export default function MyMembership() {
         const [data, setData] = useState([])
     
@@ -27,8 +28,10 @@ export default function MyMembership() {
          )
      }
     return (
+        <Grid item xs={12} sm={8} md={7}  elevation={6} square>
         <div>
            {data.map(item => <GroupItem {...item} remove={true}/>)}
         </div>
+        </Grid>
     )
 }

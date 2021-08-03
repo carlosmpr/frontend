@@ -18,10 +18,10 @@ export default function GroupTable({groups}) {
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
-          <TableRow>
-            <TableCell>Group Name</TableCell>
-            <TableCell align="right">Join Group</TableCell>
-            <TableCell align="right">Members</TableCell>
+          <TableRow style={{background:'#823E41', color:'white'}}>
+            <TableCell style={{ color:'white'}}>Group Name</TableCell>
+            <TableCell style={{ color:'white'}} align="right">Members</TableCell>
+            <TableCell style={{ color:'white'}} align="right">Join</TableCell>
            
           </TableRow>
         </TableHead>

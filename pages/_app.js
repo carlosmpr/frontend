@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Provider store={store}>
-        <Navbar />
+       
         <Component {...pageProps} />
       </Provider>
     </>

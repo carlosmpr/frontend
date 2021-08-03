@@ -5,7 +5,8 @@ import TableRow from "@material-ui/core/TableRow";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
 import { useSelector } from "react-redux";
-export default function ItemList({ name, id, description, solution }) {
+export default function ItemList({ name, id, description, solution, unFollow }) {
+  
   const token = useSelector((state) => state.counter.token);
   return (
     <TableRow
@@ -19,23 +20,9 @@ export default function ItemList({ name, id, description, solution }) {
       <TableCell align="right">Difficulty</TableCell>
       <TableCell align="right">solution</TableCell>
       <TableCell align="right">
-        <Button
-          variant="outlined"
-          onClick={async () => {
-            const res = await axios.post(
-              "http://127.0.0.1:5000/user_challenges",
-              {
-                token,
-                challange_id: id,
-              }
-            );
-
-            console.log(res);
-          }}
-        >
-          Add Challanges
-        </Button>
-        <Button
+        
+        {unFollow ?  <Button
+         
           variant="outlined"
           onClick={async () => {
             const res = await axios.post(
@@ -50,7 +37,23 @@ export default function ItemList({ name, id, description, solution }) {
           }}
         >
           unfollow
-        </Button>
+        </Button> : <Button
+       
+       onClick={async () => {
+         const res = await axios.post(
+           "http://127.0.0.1:5000/user_challenges",
+           {
+             token,
+             challange_id: id,
+           }
+         );
+
+         console.log(res);
+       }}
+     >
+      Follow
+     </Button>}
+        
       </TableCell>
     </TableRow>
   );

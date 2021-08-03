@@ -9,9 +9,10 @@ import { useSelector} from 'react-redux'
 import axios from 'axios'
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-
+import Navbar from '../component/Navbar';
 import Mychallange from '../component/Mychallange'
 import MyMembership from '../component/MyMemberships';
+import Avatar from '@material-ui/core/Avatar';
 export default function SignInSide() {
  const [user, setUser] = useState({})
  const [select, setSelect] = useState('Profile')
@@ -44,7 +45,8 @@ if(!loading){
 
   return (
       <>
-      <ButtonGroup color="primary" aria-label="outlined primary button group">
+      <Navbar />
+      <ButtonGroup color="primary" aria-label="outlined primary button group" style={{width:'100vw', display:'flex', justifyContent:'center', marginTop:'50px', marginBottom:'50px'}}>
         <Button onClick={()=> setSelect('Profile')}>Profile</Button>
         <Button onClick={()=> setSelect('Challenges')}>Challenges</Button>
         <Button onClick={()=> setSelect('Groups')}>Groups</Button>
@@ -56,25 +58,24 @@ if(!loading){
 
       <Grid
         item
+        
         xs={false}
         sm={4}
-        md={7}
-        sx={{
-          backgroundImage: 'url(https://source.unsplash.com/random)',
-          backgroundRepeat: 'no-repeat',
-          backgroundColor: (theme) =>
-            theme.palette.mode === 'light'
-              ? theme.palette.grey[50]
-              : theme.palette.grey[900],
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      /> : null }
+        md={6}
+       
+      >
+         <Avatar
+        alt="Remy Sharp"
+        src="https://thispersondoesnotexist.com/image"
+        sx={{ width: 450, height: 450, marginLeft:'25px' }}
+      />
+        </Grid>
+         : null }
     
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+      <Grid item xs={12} sm={8} md={5}  elevation={6} square>
         <Box
           sx={{
-            my: 8,
+            my: 12,
             mx: 4,
             display: 'flex',
             flexDirection: 'column',

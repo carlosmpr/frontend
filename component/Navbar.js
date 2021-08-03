@@ -14,7 +14,9 @@ export default function Navbar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ marginBottom: "50px" }}>
-        <Toolbar>
+        <Toolbar
+        style={{background:'black'}}
+        >
           <IconButton
             size="large"
             edge="start"
@@ -44,7 +46,7 @@ export default function Navbar() {
 
       {token === "klk" ? null : (
         <AppBar position="static" style={{ marginTop: "-50px" }}>
-          <Toolbar style={{ background: "black", color: "white" }}>
+          <Toolbar style={{ background: "#1C2431", color: "white" }}>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Token: {token}
             </Typography>

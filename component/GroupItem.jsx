@@ -29,24 +29,10 @@ export default function GroupItem({ id, name, programing_language, remove }) {
                 Programing Language: {programing_language.name}
               </Typography>
               {" — I'll be in your neighborhood doing errands this…"}
+              
+            
               <Button
-                style={{ background: "red", color: "white", marginLeft: "35%" }}
-                onClick={async () => {
-                  const res = await axios.post(
-                    "http://127.0.0.1:5000/group_members",
-                    {
-                      token,
-                      group_id: id,
-                    }
-                  );
-
-                  console.log(res);
-                }}
-              >
-                Join
-              </Button>
-              <Button
-                style={{ background: "red", color: "white", marginLeft: "35%" }}
+                style={{ background: "red", color: "white" }}
               >
                 Members
               </Button>
@@ -55,7 +41,7 @@ export default function GroupItem({ id, name, programing_language, remove }) {
                   style={{
                     background: "black",
                     color: "white",
-                    marginLeft: "35%",
+                    marginLeft: "10px",
                   }}
                   onClick={async () => {
                     const res = await axios.post(
@@ -71,7 +57,22 @@ export default function GroupItem({ id, name, programing_language, remove }) {
                 >
                   Remove
                 </Button>
-              ) : null}
+              ) :   <Button
+              style={{  border:'black 1px solid',color: "black", margin:'0 10px'  }}
+              onClick={async () => {
+                const res = await axios.post(
+                  "http://127.0.0.1:5000/group_members",
+                  {
+                    token,
+                    group_id: id,
+                  }
+                );
+
+                console.log(res);
+              }}
+            >
+              Join
+            </Button>}
             </React.Fragment>
           }
         />
