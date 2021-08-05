@@ -34,11 +34,14 @@ export default function Login() {
       
      
     } catch (err) {
+      console.error(err)
       setError("Invalid Credentials")
     }
   };
 
-  console.log(token);
+if(token !==''){
+router.push('/welcome')
+}
   return (
     <>
     <div

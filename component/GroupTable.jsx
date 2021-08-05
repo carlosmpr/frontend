@@ -1,4 +1,4 @@
-import * as React from 'react';
+import   React, {useState} from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -9,12 +9,16 @@ import Paper from '@material-ui/core/Paper';
 import Button from "@material-ui/core/Button";
 import axios from 'axios'
 import { useSelector } from "react-redux";
+import ResponsiveDialog from "./Dialog";
 
 
 export default function GroupTable({groups}) {
   const token = useSelector((state) => state.counter.token);
+  const [dialog, setDialog] = useState("");
 
   return (
+    <>
+      {dialog === "" ? null:  <ResponsiveDialog msg={dialog}/> }
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
@@ -40,15 +44,27 @@ export default function GroupTable({groups}) {
               
               
               onClick={async () => {
-                const res = await axios.post(
-                  "http://127.0.0.1:5000/group_members",
-                  {
-                    token,
-                    group_id: row.id,
-                  }
-                );
-    
-                console.log(res);
+                
+                try {
+                  const res = await axios.post(
+                    "http://127.0.0.1:5000/group_members",
+                    {
+                      token,
+                      group_id: row.id,
+                    }
+                  );
+                  setDialog("Group Join!")
+                  setTimeout(() => {
+                    setDialog("")
+                  }, 2000);
+                  console.log(res);
+                } catch (error) {
+                  setDialog("Already a Member")
+                  setTimeout(() => {
+                    setDialog("")
+                  }, 2000);
+                }
+               
               }}
               >Join</Button></TableCell>
             
@@ -57,5 +73,6 @@ export default function GroupTable({groups}) {
         </TableBody>
       </Table>
     </TableContainer>
+    </>
   );
 }

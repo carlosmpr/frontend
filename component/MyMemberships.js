@@ -2,17 +2,14 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import GroupItem from './GroupItem'
 import Grid from '@material-ui/core/Grid';
+import { useSelector } from "react-redux";
 export default function MyMembership() {
         const [data, setData] = useState([])
-    
-    const token = {
-        "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJjYXJsb3NAZW1haWwiLCJuYW1lIjoiQ2FybG9zIiwiZ2l0aHViIjoiY2FybG9zZ2l0aHViIiwiaW1hZ2UiOiJjYXJsb3NpbWFnZSIsInBob25lIjoiMDAwMDAwMDAwIn0.7xJzb18bZCx38-7SmCf4Czj8fNUJ_Whh-CPZKLdnolU"
-    
-        // "group_id":1
-    }
+        const token = useSelector((state) => state.counter.token);
+   
     useEffect(() => {
         (async () => {
-            const res = await axios.post('http://127.0.0.1:5000/group_members/yourmemberships', token)
+            const res = await axios.post('http://127.0.0.1:5000/group_members/yourmemberships', {token: token})
             // setLoading(true)
             // setUser(res.data)
             setData(res.data)
@@ -20,6 +17,11 @@ export default function MyMembership() {
         })()
      }, [])
 
+
+     const removeGroup = (id) => {
+        const newdata = data.filter(item => item.id !== id)
+         setData(newdata)
+     }
      if(!data.length > 0){
          return(
              <div>
@@ -30,7 +32,7 @@ export default function MyMembership() {
     return (
         <Grid item xs={12} sm={8} md={7}  elevation={6} square>
         <div>
-           {data.map(item => <GroupItem {...item} remove={true}/>)}
+           {data.map(item => <GroupItem {...item} remove={true} removeGroup={removeGroup}/>)}
         </div>
         </Grid>
     )

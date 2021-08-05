@@ -1,10 +1,29 @@
 import Head from "next/head";
+import React from 'react'
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import Navbar from "../component/Navbar";
 import Paper from "@material-ui/core/Paper";
+import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 export default function Welcome() {
+  const token = useSelector((state) => state.counter.token);
+  const router = useRouter()
+ 
+  React.useEffect(() => {
+    if(token === ''){
+ 
+     router.push('/')
+ 
+    }
+
+  },[])
+
+  if(token === ''){
+    return <div>Loading ...</div>
+  }else{
+ 
   return (
     <>
       <Navbar />
@@ -103,4 +122,4 @@ export default function Welcome() {
       </div>
     </>
   );
-}
+}}

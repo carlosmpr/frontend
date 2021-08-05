@@ -4,47 +4,64 @@ import Box from "@material-ui/core/Box";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import { useSelector } from "react-redux";
-import Link from 'next/link'
+
+import { useRouter } from "next/router";
+import Avatar from "@material-ui/core/Avatar";
+import { useSelector, useDispatch } from "react-redux";
+import Link from "next/link";
+import { setToken } from "../features/counter/counterSlice";
 
 export default function Navbar() {
   const token = useSelector((state) => state.counter.token);
+  const dispatch = useDispatch();
+  const router = useRouter();
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ marginBottom: "50px" }}>
         <Toolbar
-        style={{background:'black'}}
+          style={{
+            background: "black",
+            display: "flex",
+            justifyContent: "space-evenly",
+            alignContent: "center",
+          }}
         >
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            The CodeChallange
+          <Typography variant="h6" component="div">
+            <Link href="/welcome">The CodeChallange</Link>
           </Typography>
-          <Link href="/login">
-          <a  >
-          Login
-          </a>
-          </Link>
 
           <Link href="/account">
-          <a  >
-          account
-          </a>
+            <a>Account</a>
           </Link>
-        
+
+          <Link href="/groups">
+            <a>Groups</a>
+          </Link>
+
+          <Link href="/languages">
+            <a>Challenges</a>
+          </Link>
+          <Link href="/account">
+            <Avatar
+              alt="Remy Sharp"
+              src="https://thispersondoesnotexist.com/image"
+            />
+          </Link>
+
+          <Button
+            variant="contained"
+            style={{ color: "black", background: "white" }}
+            onClick={() => {
+              dispatch(setToken(""));
+              router.push("/");
+            }}
+          >
+            Sign out
+          </Button>
         </Toolbar>
       </AppBar>
 
-      {token === "klk" ? null : (
+      {token === "" ? null : (
         <AppBar position="static" style={{ marginTop: "-50px" }}>
           <Toolbar style={{ background: "#1C2431", color: "white" }}>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
