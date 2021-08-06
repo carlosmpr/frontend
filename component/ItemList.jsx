@@ -6,25 +6,32 @@ import Button from "@material-ui/core/Button";
 import axios from "axios";
 import ResponsiveDialog from "./Dialog";
 import { useSelector } from "react-redux";
-export default function ItemList({ name, id, description, solution, unFollow , removeChallange}) {
-  
+import CodeChallangeDialog from "./CodeChallangeDialog";
+
+export default function ItemList(props) {
+  const { name, id, description, solution, unFollow , removeChallange, difficulty} = props
   const token = useSelector((state) => state.counter.token);
   const [dialog, setDialog] = useState("");
+  const [open, setOpen] =useState(false)
+  const close = () => {
+    setOpen(false)
+  }
   return (
     <>
     {dialog === "" ? null:  <ResponsiveDialog msg={dialog}/> }
+    {open ? <CodeChallangeDialog {...props} close={close}/> : null}
     <TableRow
       key={name}
       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
     >
      
      
-      <TableCell component="th" scope="row">
+      <TableCell component="th" scope="row" onClick={()=> setOpen(true)} style={{cursor:'pointer'}}>
         {name}
       </TableCell>
       <TableCell align="right">{description}</TableCell>
-      <TableCell align="right">Difficulty</TableCell>
-      <TableCell align="right">solution</TableCell>
+      <TableCell align="right">{difficulty}</TableCell>
+      <TableCell align="right">{solution}</TableCell>
       <TableCell align="right">
         
         {unFollow ?  <Button

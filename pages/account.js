@@ -14,6 +14,7 @@ import Mychallange from '../component/Mychallange'
 import MyMembership from '../component/MyMemberships';
 import Avatar from '@material-ui/core/Avatar';
 import { useRouter } from "next/router";
+import Loading from '../component/Loading';
 export default function SignInSide() {
  const [user, setUser] = useState({})
  const [select, setSelect] = useState('Profile')
@@ -41,9 +42,7 @@ export default function SignInSide() {
 
 if(!loading){
     return (
-        <div>
-            Loading...
-        </div>
+       <Loading />
     )
 
 }

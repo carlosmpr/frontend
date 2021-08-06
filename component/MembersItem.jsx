@@ -16,8 +16,8 @@ export default function MemberItem({ name, phone, email , github }) {
         <ListItemAvatar>
         <Avatar
         alt="Remy Sharp"
-        src="https://thispersondoesnotexist.com/image"
-        sx={{ width: 250, height: 250, marginLeft:'25px', marginRight:'25px' }}
+        src="https://source.unsplash.com/random"
+        sx={{ width: 150, height: 150, marginLeft:'25px', marginRight:'25px' }}
       />
         </ListItemAvatar>
         

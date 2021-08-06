@@ -6,9 +6,11 @@ export default function Groups({data}) {
   return (
     <>
     <Navbar />
-    <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
+    <div style={{width:'100%' , display:'flex', justifyContent:'center', alignContent:'center'}}>
+    <List sx={{ width: '80%', bgcolor: 'background.paper' }}>
       {data.map(item => <GroupItem {...item}/>)}
     </List>
+    </div>
     </>
   );
 }

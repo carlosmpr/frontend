@@ -23,7 +23,7 @@ export default function LanguageDetails({ data }) {
           <TableData code={data.code_challenges} />
           </>
         ) : (
-          <p>no</p>
+          <p>No Challanges found</p>
         )}
       </div>
       <div style={{ padding: "25px" }}>
@@ -32,7 +32,7 @@ export default function LanguageDetails({ data }) {
       
         <h1>Groups</h1>
         <GroupTable groups={data.groups} />
-      </> : <p>no</p>}
+      </> : <p>No Groups Found</p>}
       </div>
     </div>
     </>

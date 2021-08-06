@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import { useRouter } from "next/router";
 
 import { useSelector } from "react-redux";
+import Loading from "../../component/Loading";
 export default function index() {
   const [data, setData] = useState([]);
   const token = useSelector((state) => state.counter.token);
@@ -20,7 +21,7 @@ export default function index() {
   }, []);
 
   if (!data.length > 0) {
-    return <div>Loading..</div>;
+    return <Loading />;
   }
   return (
     <>
